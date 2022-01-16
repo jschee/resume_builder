@@ -2,7 +2,7 @@
 
 Small application for resume building. Add a bio, projects, experience, skills, education.
 
-Rails 7, esbuild, cssbundling /w tailwindcss
+Rails 7, esbuild, cssbundling /w tailwindcss, pdf generater with grover
 
 `bundle update && bundle install`
 
