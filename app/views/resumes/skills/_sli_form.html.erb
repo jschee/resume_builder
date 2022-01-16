@@ -1,0 +1,15 @@
+<div class="nested-form-wrapper border-b pb-4 mb-4" data-new-record="<%= f.object.new_record? %>">
+  <%= f.hidden_field :_destroy %>
+  <%= f.hidden_field :skill_id, value: @skill.id %>
+  <div class="mb-4">
+    <%= f.label :name, class: 'block' %>
+    <%= f.text_field :name, class: "border p-2 w-full" %>
+  </div>
+  <div class="mb-4">
+    <%= f.label :description, class: 'block' %>
+    <%= f.rich_text_area :description, class: "border p-2 w-full bg-white" %>
+  </div>
+  <button type="button" data-action="nested-form#remove" class="bg-red-400 text-white rounded text-center p-2">
+    Remove skill
+  </button>
+</div>

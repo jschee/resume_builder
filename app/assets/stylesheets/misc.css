@@ -1,0 +1,20 @@
+.resume-intro {
+  display: flex;
+  color: #e64226;
+  font-family: Georgia;
+}
+
+.resume-intro::after{
+  content: "";
+  background: #e64226;
+  height: 2px;
+  position: relative;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: auto;
+  margin: 0.7em 0;
+  flex-grow: 1;
+  border-radius: 2px;
+}

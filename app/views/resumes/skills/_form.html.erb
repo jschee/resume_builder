@@ -1,0 +1,20 @@
+<%= form_with model: [@resume, @skill], data: { controller: "nested-form", nested_form_wrapper_selector_value: ".nested-form-wrapper" } do |f| %>
+  <%= f.hidden_field :resume_id, value: @resume.id %>
+  <template data-nested-form-target="template">
+    <%= f.fields_for :skill_line_items, SkillLineItem.new, child_index: 'NEW_RECORD' do |sli_fields| %>
+      <%= render 'sli_form', f: sli_fields %>
+    <% end %>
+  </template>
+
+  <%= f.fields_for :skill_line_items do |sli_fields| %>
+      <%= render 'sli_form', f: sli_fields %>
+  <% end %>
+
+  <div data-nested-form-target="target"></div>
+  <br>
+  <button type="button" data-action="nested-form#add" class="bg-blue-400 text-white rounded text-center p-2">Add skill</button>
+  <br>
+  <div class="my-4">
+  <%= f.submit class: "bg-blue-400 text-white rounded text-center p-2" %>
+  </div>
+<% end %>

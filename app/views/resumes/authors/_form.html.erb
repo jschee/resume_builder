@@ -1,0 +1,32 @@
+<%= form_with model: [@resume, @author] do |form| %>
+  <%= form.hidden_field :resume_id, value: @resume.id %>
+  <div class="mb-4">
+    <%= form.label :first_name, class: 'block' %>
+    <%= form.text_field :first_name, class: "border p-2 w-full" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :last_name, class: 'block' %>
+    <%= form.text_field :last_name, class: "border p-2 w-full" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :phone_number, class: 'block' %>
+    <%= form.text_field :phone_number, class: "border p-2 w-full" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :email, class: 'block' %>
+    <%= form.text_field :email, class: "border p-2 w-full" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :website, class: 'block' %>
+    <%= form.text_field :website, class: "border p-2 w-full" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :title, class: 'block' %>
+    <%= form.text_field :title, class: "border p-2 w-full" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :bio, class: 'block' %>
+    <%= form.rich_text_area :bio, class: "border p-2 w-full bg-white" %>
+  </div>
+  <%= form.submit class: "bg-blue-400 text-white rounded text-center p-2" %>
+<% end %>

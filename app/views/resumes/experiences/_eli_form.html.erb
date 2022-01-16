@@ -1,0 +1,27 @@
+<div class="nested-form-wrapper border-b pb-4 mb-4" data-new-record="<%= f.object.new_record? %>">
+  <%= f.hidden_field :_destroy %>
+  <%= f.hidden_field :experience_id, value: @experience.id %>
+  <div class="mb-4">
+    <%= f.label :name, class: 'block' %>
+    <%= f.text_field :name, class: "border p-2 w-full" %>
+  </div>
+  <div class="mb-4">
+    <%= f.label :title, class: 'block' %>
+    <%= f.text_field :title, class: "border p-2 w-full" %>
+  </div>
+  <div class="mb-4">
+    <%= f.label :start_year, class: 'block' %>
+    <%= f.text_field :start_year, class: "border p-2 w-full" %>
+  </div>
+  <div class="mb-4">
+    <%= f.label :end_year, class: 'block' %>
+    <%= f.text_field :end_year, class: "border p-2 w-full" %>
+  </div>
+  <div class="mb-4">
+    <%= f.label :description, class: 'block' %>
+    <%= f.rich_text_area :description, class: "border p-2 w-full bg-white" %>
+  </div>
+  <button type="button" data-action="nested-form#remove" class="bg-red-400 text-white rounded text-center p-2">
+    Remove experience
+  </button>
+</div>

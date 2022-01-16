@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  focus: MyString
+  start_year: MyString
+  end_year: MyString
+  education: one
+
+two:
+  name: MyString
+  focus: MyString
+  start_year: MyString
+  end_year: MyString
+  education: two

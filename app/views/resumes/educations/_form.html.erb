@@ -1,0 +1,20 @@
+<%= form_with model: [@resume, @education], data: { controller: "nested-form", nested_form_wrapper_selector_value: ".nested-form-wrapper" } do |f| %>
+  <%= f.hidden_field :resume_id, value: @resume.id %>
+  <template data-nested-form-target="template">
+    <%= f.fields_for :education_line_items, EducationLineItem.new, child_index: 'NEW_RECORD' do |eli_fields| %>
+      <%= render 'eli_form', f: eli_fields %>
+    <% end %>
+  </template>
+
+  <%= f.fields_for :education_line_items do |eli_fields| %>
+      <%= render 'eli_form', f: eli_fields %>
+  <% end %>
+
+  <div data-nested-form-target="target"></div>
+  <br>
+  <button type="button" data-action="nested-form#add" class="bg-blue-400 text-white rounded text-center p-2">Add education</button>
+  <br>
+  <div class="my-4">
+  <%= f.submit class: "bg-blue-400 text-white rounded text-center p-2" %>
+  </div>
+<% end %>

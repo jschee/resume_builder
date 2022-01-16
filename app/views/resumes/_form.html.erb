@@ -1,0 +1,11 @@
+<%= form_with model: @resume, class: "bg-white shadow border p-4 m-2 rounded" do |f| %>
+  <div class="mb-4">
+    <%= f.label :name, class: 'block' %>
+    <%= f.text_field :name, class: "border p-2 w-full" %>
+  </div>
+  <div class="mb-4">
+    <%= f.label :description, class: 'block' %>
+    <%= f.text_area :description, class: "border p-2 w-full" %>
+  </div>
+  <%= f.submit class: "bg-blue-400 text-white rounded text-center p-2" %>
+<% end %>
