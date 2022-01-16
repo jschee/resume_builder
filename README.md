@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Small application for resume building. Add a bio, projects, experience, skills, education.
 
-Things you may want to cover:
+Rails 7, esbuild, cssbundling /w tailwindcss
 
-* Ruby version
+`bundle update && bundle install`
+`yarn install && yarn build && yarn build:css`
+`rals db:create && rails db:migrate`
+`bin/dev`
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
