@@ -1,6 +1,6 @@
-# README
+# resume_builder
 
-Small application for resume building. Add a bio, projects, experience, skills, education.
+How I modify resumes. Small application for resume building. Add a bio, projects, experience, skills, education.
 
 Rails 7, esbuild, cssbundling /w tailwindcss
 
@@ -9,3 +9,5 @@ Rails 7, esbuild, cssbundling /w tailwindcss
 `rals db:create && rails db:migrate`
 `bin/dev`
 
+things to add:
+-clone data from previous versioms
