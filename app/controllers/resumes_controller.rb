@@ -19,6 +19,7 @@ class ResumesController < ApplicationController
 
   def show
     respond_to do |format|
+      format.html
       format.pdf { download_resume }
     end
   end

@@ -10,7 +10,7 @@ module Groverable
     )
     html_absolute = Grover::HTMLPreprocessor.process invoice, @base_url, "http"
     pdf = Grover.new(html_absolute, { display_url: @base_url }).to_pdf
-    send_data pdf, type: 'application/pdf; charset=binary', filename: "test.pdf"
+    send_data pdf, type: 'application/pdf; charset=binary', filename: "#{@resume.author.first_name.downcase}_#{@resume.author.last_name.downcase}_resume.pdf"
   end
 
   private
