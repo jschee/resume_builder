@@ -1,24 +1,16 @@
-# README
+# resume_builder
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+How I modify resumes. Small application for resume building. Add a bio, projects, experience, skills, education.
 
-Things you may want to cover:
+Rails 7, esbuild, cssbundling /w tailwindcss, pdf generater with grover
 
-* Ruby version
+`bundle update && bundle install`
 
-* System dependencies
+`yarn install && yarn build && yarn build:css`
 
-* Configuration
+`rals db:create && rails db:migrate`
 
-* Database creation
+`bin/dev`
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+things to add:
+-clone data from previous versioms
