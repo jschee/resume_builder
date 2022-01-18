@@ -3,5 +3,9 @@
 // ./bin/rails generate stimulus controllerName
 
 import { application } from "./application"
+
+import ToTopController from "./to_top_controller.js"
+application.register("to-top", ToTopController)
+
 import NestedForm from "stimulus-rails-nested-form"
 application.register("nested-form", NestedForm)

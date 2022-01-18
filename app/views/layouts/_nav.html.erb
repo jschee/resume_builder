@@ -1,0 +1,36 @@
+<nav class="flex justify-between items-center print:hidden">
+  <div>
+    <% if @resume.author.present? %>
+      <%= link_to "edit author", edit_resume_author_path(@resume, @resume.author), class: "underline" %>
+    <% else %>
+      <%= link_to "your deets", new_resume_author_path(@resume), class: "underline" %>
+    <% end %>
+    <% if @resume.project_line_items.present? %>
+      <%= link_to "edit projects", edit_resume_project_path(@resume, @resume.project), class: "underline" %>
+    <% else %>
+      <%= link_to "projects", new_resume_project_path(@resume), class: "underline" %>
+    <% end %>
+    <% if @resume.skill_line_items.present? %>
+      <%= link_to "edit skills", edit_resume_skill_path(@resume, @resume.skill), class: "underline" %>
+    <% else %>
+      <%= link_to "skills", new_resume_skill_path(@resume), class: "underline" %>
+    <% end %>
+    <% if @resume.experience_line_items.present? %>
+      <%= link_to "edit experiences", edit_resume_experience_path(@resume, @resume.experience), class: "underline" %>
+    <% else %>
+      <%= link_to "experiences", new_resume_experience_path(@resume), class: "underline" %>
+    <% end %>
+    <% if @resume.education_line_items.present? %>
+      <%= link_to "edit educations", edit_resume_education_path(@resume, @resume.education), class: "underline" %>
+    <% else %>
+      <%= link_to "educations", new_resume_education_path(@resume), class: "underline" %>
+    <% end %>
+  </div>
+  <%= link_to resume_path(id: @resume.id, format: :pdf) do  %>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="inline-block align-middle" viewBox="0 0 16 16">
+      <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+      <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+    </svg>
+    <span class="inline-block align-middle">Download PDF</span>
+  <% end %>
+</nav>

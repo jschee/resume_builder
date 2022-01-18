@@ -1,113 +1,13 @@
 <div class="max-w-5xl mx-auto p-4">
-  <div class="inline print:hidden">
-    <% if @resume.author.present? %>
-      <%= link_to "edit author", edit_resume_author_path(@resume, @resume.author), class: "underline" %>
-    <% else %>
-      <%= link_to "your deets", new_resume_author_path(@resume), class: "underline" %>
-    <% end %>
-    <% if @resume.project_line_items.present? %>
-      <%= link_to "edit projects", edit_resume_project_path(@resume, @resume.project), class: "underline" %>
-    <% else %>
-      <%= link_to "projects", new_resume_project_path(@resume), class: "underline" %>
-    <% end %>
-    <% if @resume.skill_line_items.present? %>
-      <%= link_to "edit skills", edit_resume_skill_path(@resume, @resume.skill), class: "underline" %>
-    <% else %>
-      <%= link_to "skills", new_resume_skill_path(@resume), class: "underline" %>
-    <% end %>
-    <% if @resume.experience_line_items.present? %>
-      <%= link_to "edit experiences", edit_resume_experience_path(@resume, @resume.experience), class: "underline" %>
-    <% else %>
-      <%= link_to "experiences", new_resume_experience_path(@resume), class: "underline" %>
-    <% end %>
-    <% if @resume.education_line_items.present? %>
-      <%= link_to "edit educations", edit_resume_education_path(@resume, @resume.education), class: "underline" %>
-    <% else %>
-      <%= link_to "educations", new_resume_education_path(@resume), class: "underline" %>
-    <% end %>
-    <%= link_to resume_path(id: @resume.id, format: :pdf) do  %>
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="inline-block align-middle" viewBox="0 0 16 16">
-        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-      </svg>
-      <span class="inline-block align-middle">Download PDF</span>
-    <% end %>
-  </div>
+  <%= render partial: "layouts/nav" %>
   <div class="my-4 bg-white print:bg-none shadow p-4 rounded font-sans print:my-0 print:shadow-none print:rounded-none print:p-0 print:px-2">
-    <% if @resume.author.present? %>
-      <div>
-        <div class="text-2xl resume-intro"><span class="pr-2"><%= @resume.author.first_name %> <%= @resume.author.last_name %></span></div>
-        <div class="flex justify-between">
-          <div class="text-lg"><%= @resume.author.title %></div>
-          <div class="inline-flex">
-            <div><%= @resume.author.phone_number %></div>
-            <div class="mx-2">·</div>
-            <div><%= @resume.author.email %></div>
-            <div class="mx-2">·</div>
-            <div><%= @resume.author.website %></div>
-          </div>
-        </div>
-        <div class="my-2">
-          <%= @resume.author.bio %>
-        </div>
-      </div>
-    <% end %>
-    <% if @resume.project_line_items.present? %>
-      <div>
-        <div class="text-2xl resume-intro"><span class="pr-2">Key Projects</span></div>
-        <% @resume.project_line_items.order_by_created_at.each do |pli| %>
-          <div class="my-2">
-            <div class="flex justify-between items-center">
-              <div class="text-lg font-semibold" style="color: #e64226"><%= pli.name %></div>
-              <div class="text-sm"><%= pli.start_year %> – <%= pli.end_year %></div>
-            </div>
-            <p><%= pli.description %></p>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-    <% if @resume.skill_line_items.present? %>
-      <div>
-        <div class="text-2xl resume-intro"><span class="pr-2">Skills</span></div>
-        <% @resume.skill_line_items.order_by_created_at.each do |sli| %>
-          <div class="my-2">
-            <div class="flex justify-between items-center">
-              <div class="text-lg font-semibold" style="color: #e64226"><%= sli.name %></div>
-            </div>
-            <p><%= sli.description %></p>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-    <% if @resume.experience_line_items.present? %>
-      <div>
-        <div class="text-2xl resume-intro"><span class="pr-2">Experience</span></div>
-        <% @resume.experience_line_items.order_by_created_at.each do |eli| %>
-          <div class="my-2">
-            <div class="flex justify-between items-center">
-              <div class="text-lg font-semibold" style="color: #e64226"><%= eli.name %></div>
-              <div class="text-sm"><%= eli.start_year %> – <%= eli.end_year %></div>
-            </div>
-            <div class="text-gray-500"><%= eli.title %></div>
-            <p><%= eli.description %></p>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-    <% if @resume.education_line_items.present? %>
-      <div>
-        <div class="text-2xl resume-intro"><span class="pr-2">Education</span></div>
-        <% @resume.education_line_items.order_by_created_at.each do |eli| %>
-          <div class="my-2">
-            <div class="flex justify-between items-center">
-              <div class="text-lg font-semibold" style="color: #e64226"><%= eli.name %></div>
-              <div class="text-sm"><%= eli.start_year %> – <%= eli.end_year %></div>
-            </div>
-            <div class="text-gray-500"><%= eli.focus %></div>
-            <p><%= eli.description %></p>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
+    <%= render partial: "resumes/authors/author_section" %>
+    <%= render partial: "resumes/projects/project_section" %>
+    <%= render partial: "resumes/skills/skill_section" %>
+    <%= render partial: "resumes/experiences/experience_section" %>
+    <%= render partial: "resumes/educations/education_section" %>
   </div>
+</div>
+<div class="fixed bottom-10 right-12">
+  <%= button_tag "⤴️", class: "text-white rounded-full h-16 w-16 shadow p-4 text-center bg-blue-500 hover:bg-blue-400 active:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 print:hidden", data: { controller: "to-top", action: "click->to-top#bringToTop" } %>
 </div>

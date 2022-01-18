@@ -1,0 +1,15 @@
+<% if @resume.education_line_items.present? %>
+  <div>
+    <div class="text-2xl resume-intro"><span class="pr-2">Education</span></div>
+    <% @resume.education_line_items.order_by_created_at.each do |eli| %>
+      <div class="my-2">
+        <div class="flex justify-between items-center">
+          <div class="text-lg font-semibold" style="color: #e64226"><%= eli.name %></div>
+          <div class="text-sm"><%= eli.start_year %> – <%= eli.end_year %></div>
+        </div>
+        <div class="text-gray-500"><%= eli.focus %></div>
+        <p><%= eli.description %></p>
+      </div>
+    <% end %>
+  </div>
+<% end %>

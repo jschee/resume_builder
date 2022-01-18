@@ -1,0 +1,18 @@
+<% if @resume.author.present? %>
+  <div>
+    <div class="text-2xl resume-intro"><span class="pr-2"><%= @resume.author.first_name %> <%= @resume.author.last_name %></span></div>
+    <div class="flex justify-between">
+      <div class="text-lg"><%= @resume.author.title %></div>
+      <div class="inline-flex">
+        <div><%= @resume.author.phone_number %></div>
+        <div class="mx-2">·</div>
+        <div><%= @resume.author.email %></div>
+        <div class="mx-2">·</div>
+        <div><%= @resume.author.website %></div>
+      </div>
+    </div>
+    <div class="my-2">
+      <%= @resume.author.bio %>
+    </div>
+  </div>
+<% end %>
