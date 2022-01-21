@@ -10,6 +10,8 @@ class Resume < ApplicationRecord
   has_many :education_line_items, through: :education
   after_create :create_associations
 
+  validates :name, presence: :true
+
   def create_associations
     Author.create!(resume_id: self.id)
     Project.create!(resume_id: self.id)
