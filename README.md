@@ -2,7 +2,7 @@
 
 How I modify resumes. Small application for resume building. Add a bio, projects, experience, skills, education.
 
-Rails 7, esbuild, cssbundling /w tailwindcss, pdf generater with grover
+Rails 7, esbuild, cssbundling with tailwindcss, pdf generator with [https://github.com/Studiosity/grover](grover)
 
 `bundle update && bundle install`
 
@@ -12,5 +12,8 @@ Rails 7, esbuild, cssbundling /w tailwindcss, pdf generater with grover
 
 `bin/dev`
 
-things to add:
--clone data from previous versioms
+todos:
+- hotwire it and make it look pretty
+
+added:
+- duplicate data from last version
