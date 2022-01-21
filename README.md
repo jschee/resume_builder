@@ -2,7 +2,7 @@
 
 How I modify resumes. Small application for resume building. Add a bio, projects, experience, skills, education.
 
-Rails 7, esbuild, cssbundling with tailwindcss, pdf generator with [https://github.com/Studiosity/grover](grover)
+Rails 7, esbuild, cssbundling with tailwindcss, pdf generator with [grover](https://github.com/Studiosity/grover)
 
 `bundle update && bundle install`
 
