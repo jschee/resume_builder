@@ -1,5 +1,7 @@
 class Resumes::AuthorsController < ApplicationController
   before_action :set_resume
+  before_action :set_author, only: [:edit, :update]
+  before_action :duplicate, only: :edit
 
   def new
     @author = Author.new
@@ -12,9 +14,7 @@ class Resumes::AuthorsController < ApplicationController
     end
   end
 
-  def edit
-    @author = @resume.author
-  end
+  def edit; end
 
   def update
     @author = Author.find(params[:id])
@@ -27,6 +27,17 @@ class Resumes::AuthorsController < ApplicationController
 
   def set_resume
     @resume = Resume.find(params[:resume_id])
+  end
+
+  def set_author
+    @author = Author.find(params[:id])
+  end
+
+  def duplicate
+    if params[:duplicate].present?
+      @author.copy_from_last_version
+      redirect_to edit_resume_author_path(@resume, @author)
+    end
   end
 
   def author_params

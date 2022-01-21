@@ -1,4 +1,13 @@
+<%= render "layouts/nav" %>
 <div class="max-w-sm mx-auto p-2">
   <p class="text-center mb-4">Edit Projects</p>
+  <% if @project.project_line_items.empty? && @project != Project.first %>
+    <p class="text-sm">Would you like to copy items from the previous version?</p>
+    <br>
+    <%= link_to "Copy project items", edit_resume_project_path(@resume.id, @resume.project.id, duplicate: true), class: "bg-blue-400 text-white rounded text-center p-2" %>
+    <br>
+    <br>
+    <hr>
+  <% end %>
   <%= render partial: "form" %>
 </div>

@@ -1,6 +1,7 @@
 class Resumes::ProjectsController < ApplicationController
   before_action :set_resume
   before_action :set_project, only: [:edit, :update]
+  before_action :duplicate, only: :edit
 
   def new
     @project = Project.new
@@ -13,7 +14,7 @@ class Resumes::ProjectsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit;end
 
   def update
     if @project.update(project_params)
@@ -31,6 +32,12 @@ class Resumes::ProjectsController < ApplicationController
 
   def set_resume
     @resume = Resume.find(params[:resume_id])
+  end
+
+  def duplicate
+    if params[:duplicate].present?
+      @project.copy_from_last_version
+    end
   end
 
   def project_params

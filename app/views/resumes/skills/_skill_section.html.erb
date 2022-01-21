@@ -1,13 +1,11 @@
 <% if @resume.skill_line_items.present? %>
-  <div>
-    <div class="text-2xl resume-intro"><span class="pr-2">Skills</span></div>
-    <% @resume.skill_line_items.order_by_created_at.each do |sli| %>
-      <div class="my-2">
-        <div class="flex justify-between items-center">
-          <div class="text-lg font-semibold" style="color: #e64226"><%= sli.name %></div>
-        </div>
-        <p><%= sli.description %></p>
+  <div class="text-2xl resume-intro"><span class="pr-2">Skills</span></div>
+  <% @resume.skill_line_items.order_by_created_at.each do |sli| %>
+    <div class="my-2">
+      <div class="flex justify-between items-center">
+        <div class="text-lg font-semibold" style="color: #e64226"><%= sli.name %></div>
       </div>
-    <% end %>
-  </div>
+      <p><%= sli.description %></p>
+    </div>
+  <% end %>
 <% end %>

@@ -1,4 +1,13 @@
+<%= render "layouts/nav" %>
 <div class="max-w-sm mx-auto p-2">
-  <p class="text-center mb-4">Edit Resume</p>
+  <p class="text-center mb-4">Edit author details</p>
+  <% if @author.attributes.values.any?(&:nil?) && @author != Author.first %>
+    <p class="text-sm">Would you like to copy author details from the previous version?</p>
+    <br>
+    <%= link_to "Copy author details", edit_resume_author_path(@resume.id, @author.id, duplicate: true), data: { turbo: false }, class: "bg-blue-400 text-white rounded text-center p-2" %>
+    <br>
+    <br>
+    <hr>
+  <% end %>
   <%= render partial: 'form' %>
 </div>

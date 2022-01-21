@@ -1,6 +1,7 @@
 class Resumes::EducationsController < ApplicationController
   before_action :set_resume
   before_action :set_education, only: [:edit, :update]
+  before_action :duplicate, only: :edit
 
   def new
     @education = Education.new
@@ -31,6 +32,12 @@ class Resumes::EducationsController < ApplicationController
 
   def set_resume
     @resume = Resume.find(params[:resume_id])
+  end
+
+  def duplicate
+    if params[:duplicate].present?
+      @education.copy_from_last_version
+    end
   end
 
   def education_params

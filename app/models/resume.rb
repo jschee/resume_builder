@@ -11,10 +11,10 @@ class Resume < ApplicationRecord
   after_create :create_associations
 
   def create_associations
-    Project.create!(resume: self)
-    Skill.create!(resume: self)
-    Education.create!(resume: self)
-    Experience.create!(resume: self)
-    Education.create!(resume: self)
+    Author.create!(resume_id: self.id)
+    Project.create!(resume_id: self.id)
+    Skill.create!(resume_id: self.id)
+    Education.create!(resume_id: self.id)
+    Experience.create!(resume_id: self.id)
   end
 end

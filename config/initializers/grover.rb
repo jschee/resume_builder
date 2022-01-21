@@ -1,16 +1,21 @@
 Grover.configure do |config|
   config.options = {
     margin: {
-      top: '25px',
+      top: '15px',
+      right: '5px',
       bottom: '25px',
-      left: '15px',
-      right: '15px'
+      left: '5px'
+    },
+    viewport: {
+      width: 640,
+      height: 480
     },
     print_background: true,
     user_agent: 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0',
-    full_page: true,
-    prefer_css_page_size: true,
+    full_page: false,
+    prefer_css_page_size: false,
     bypass_csp: true,
+    emulate_media: 'screen',
     media_features: [{ name: 'prefers-color-scheme', value: 'dark' }],
     cache: false,
     timeout: 0, # Timeout in ms. A value of `0` means 'no timeout'

@@ -1,9 +1,16 @@
 class Resumes::ExperiencesController < ApplicationController
   before_action :set_resume
   before_action :set_experience, only: [:edit, :update]
+  before_action :duplicate, only: :edit
 
   def new
     @experience = Experience.new
+    if params[:duplicate].present?
+      @experience.copy_from_last_version
+      if @resume.experience.experience_line_items.present?
+        redirect_to edit_resume_experience_path(@resume, @resume.experience)
+      end
+    end
   end
 
   def create
@@ -31,6 +38,12 @@ class Resumes::ExperiencesController < ApplicationController
 
   def set_resume
     @resume = Resume.find(params[:resume_id])
+  end
+
+  def duplicate
+    if params[:duplicate].present?
+      @experience.copy_from_last_version
+    end
   end
 
   def experience_params

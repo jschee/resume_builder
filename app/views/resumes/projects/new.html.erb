@@ -1,4 +1,11 @@
+<%= render "layouts/nav" %>
 <div class="max-w-sm mx-auto p-2">
   <p class="text-center mb-4">Projects</p>
+  <p class="text-sm">Would you like to copy projects from the previous version?</p>
+  <br>
+  <%= link_to "Copy projects", new_resume_project_path(@resume, duplicate: true), class: "bg-blue-400 text-white rounded text-center p-2" %>
+  <br>
+  <br>
+  <hr>
   <%= render partial: "form" %>
 </div>
