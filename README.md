@@ -8,7 +8,7 @@ Rails 7, esbuild, cssbundling with tailwindcss, pdf generator with [grover](http
 
 `yarn install && yarn build && yarn build:css`
 
-`rals db:create && rails db:migrate`
+`rails db:create && rails db:migrate`
 
 `bin/dev`
 
