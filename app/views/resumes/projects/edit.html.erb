@@ -1,5 +1,5 @@
 <%= render "layouts/nav" %>
-<div class="max-w-sm mx-auto p-2">
+<div class="max-w-lg mx-auto p-2">
   <p class="text-center mb-4">Edit Projects</p>
   <% if @project.project_line_items.empty? && @project != Project.first %>
     <p class="text-sm">Would you like to copy items from the previous version?</p>

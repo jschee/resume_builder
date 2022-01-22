@@ -1,5 +1,5 @@
 <%= render "layouts/nav" %>
-<div class="max-w-sm mx-auto p-2">
+<div class="max-w-lg mx-auto p-2">
   <p class="text-center mb-4">Edit Experiences</p>
   <% if @experience.experience_line_items.empty? && @experience != Experience.first %>
     <p class="text-sm">Would you like to copy items from the previous version?</p>
