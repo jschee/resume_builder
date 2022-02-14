@@ -1,0 +1,13 @@
+<% if @resume.experience_line_items.present? %>
+  <div class="text-2xl text-center font-semibold pt-4">Experience</div>
+  <% @resume.experience_line_items.order_by_created_at.each do |eli| %>
+    <div class="my-2">
+      <div class="flex justify-between items-center">
+        <div class="text-lg font-semibold"><%= eli.name %></div>
+        <div class="text-sm"><%= eli.start_year %> – <%= eli.end_year %></div>
+      </div>
+      <div class="text-gray-500"><%= eli.title %></div>
+      <p><%= eli.description %></p>
+    </div>
+  <% end %>
+<% end %>

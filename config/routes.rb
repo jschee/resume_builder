@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     resources :experiences, module: :resumes
     resources :educations, module: :resumes
     resources :skills, module: :resumes
+    member do
+      get 'corporate'
+    end
     # get '/download_resume', to: 'resumes#download_resume', as: 'download_resume'
   end
 end

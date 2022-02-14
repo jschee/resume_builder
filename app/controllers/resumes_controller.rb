@@ -1,5 +1,6 @@
 class ResumesController < ApplicationController
   before_action :set_resume
+  before_action :set_current_template, only: [:show, :corporate]
   include Groverable
 
   def index
@@ -24,6 +25,13 @@ class ResumesController < ApplicationController
     end
   end
 
+  def corporate
+    respond_to do |format|
+      format.html
+      format.pdf { download_resume }
+    end
+  end
+
   private
 
   def set_resume
@@ -35,6 +43,16 @@ class ResumesController < ApplicationController
   end
 
   def download_resume
-    render_pdf(ResumesController, 'resumes/show', @resume)
+    render_pdf(ResumesController, @template, @resume)
+  end
+
+
+  def set_current_template
+    case params[:action]
+    when 'show'
+      @template = 'resumes/show'
+    else 'corporate'
+      @template = 'resumes/corporate'
+    end
   end
 end

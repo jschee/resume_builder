@@ -1,7 +1,7 @@
 <%= render "layouts/nav" %>
 <div class="max-w-5xl mx-auto p-4">
   <div class="flex justify-between items-center w-full">
-    <%= link_to resume_path(id: @resume.id, format: :pdf), class: "print:hidden" do  %>
+    <%= link_to corporate_resume_path(id: @resume.id, format: :pdf), class: "print:hidden" do  %>
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="inline-block align-middle" viewBox="0 0 16 16">
         <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
         <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
@@ -13,12 +13,12 @@
       <%= link_to 'Corporate', corporate_resume_path(id: @resume.id), class: 'underline' %>
     </div>
   </div>
-  <div class="my-4 bg-white shadow p-4 rounded font-sans print:m-0 print:shadow-none print:rounded-none print:bg-none print:p-0">
-    <%= render partial: "resumes/authors/author_section" %>
-    <%= render partial: "resumes/projects/project_section" %>
-    <%= render partial: "resumes/skills/skill_section" %>
-    <%= render partial: "resumes/experiences/experience_section" %>
-    <%= render partial: "resumes/educations/education_section" %>
+  <div class="my-4 bg-white shadow p-4 rounded font-sans print:shadow-none print:rounded-none print:bg-none print:p-0 print:m-0">
+    <%= render partial: "resumes/authors/author_section_corporate" %>
+    <%= render partial: "resumes/projects/project_section_corporate" %>
+    <%= render partial: "resumes/skills/skill_section_corporate" %>
+    <%= render partial: "resumes/experiences/experience_section_corporate" %>
+    <%= render partial: "resumes/educations/education_section_corporate" %>
   </div>
 </div>
 <div class="fixed bottom-10 right-12 print:hidden">
